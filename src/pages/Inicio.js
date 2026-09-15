@@ -2,6 +2,7 @@ import { useState } from "react";
 import familias from "../data/plantas";
 import CardPlants from "../components/cardPlants";
 
+
 function Inicio() {
   const [busqueda, setBusqueda] = useState("");
 
@@ -15,18 +16,18 @@ function Inicio() {
 
   return (
     <div className="pagina-inicio">
-      <div className="luciernagas" aria-hidden='true'>
+      <div className="luciernagas" aria-hidden="true">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       <header className="encabezado">
         <p className="marca">BLOG DE PLANTAS</p>
@@ -101,6 +102,7 @@ function Inicio() {
               />
             ))}
           </section>
+        
         </>
       )}
     </div>
