@@ -8,7 +8,7 @@ export const calathea = [
     nombre: "Calatheas",
     origen: "Selvas tropicales de América Central y del Sur",
     imagen: Calatheas,
-    descripcionFamilia: ` Pertenecen a la familia Marantaceae. Son plantas herbáceas de crecimiento terrestre y compacto que crecen a ras de suelo. Sus raíces no son muy largas ni profundas./n
+    descripcionFamilia: ` Pertenecen a la familia Marantaceae. Son plantas herbáceas de crecimiento terrestre y compacto que crecen a ras de suelo. Sus raíces no son muy largas ni profundas.
        En lugar de una raíz , tienen rizomas (tallos subterráneos horizontales) de donde brotan raíces delgadas y superficiales. Por eso prefieren macetas más anchas que profundas.`,
     fechaAgregado: "2026-09-15",
     variantes: [
@@ -30,7 +30,7 @@ export const calathea = [
           "Cerca de una ventana a 2 metros de distancia. Baño con ventana y buena iluminacion, gracias a su alta humedad. EVITAR ESQUINAS OSCURAS, JUNTO A FUENTES DE CALOR O FRIO",
         problemas: {
           hojasAmarillas: `Es una planta muy sensible en lo personal, suelen ponerse amarillos por estres y tambien depende de la zona amarilla.
-             SI: \n
+             SI: 
 
              -Tiene la hoja manchas amarillas en distintas zonas y la tierra humeda, es por exceso de riego.\n
              -Si las hojas amarillas se secan y curvan por los bordes: es por falta de humedad ambiental o riego insuficiente.\n
