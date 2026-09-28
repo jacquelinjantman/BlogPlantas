@@ -41,7 +41,7 @@ function MenuLateral() {
         </div>
 
         <div className="menu-columnas">
-          <nav className="columa-familias">
+          <nav className="columna-familias">
             <Link className="enlace-inicio" to="/" onClick={cerrarMenu}>
               Inicio
             </Link>
@@ -80,7 +80,7 @@ function MenuLateral() {
                   <Link
                     key={variante.id}
                     className="menu-variante"
-                    to={`/familia/${familiaSeleccionada.id}?planta/${variante.id}`}
+                    to={`/familia/${familiaSeleccionada.id}/planta/${variante.id}`}
                     onClick={cerrarMenu}
                   >
                     {variante.nombre}

@@ -1,0 +1,21 @@
+.brillito {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  animation: brillito-animacion 0.9s ease-out forwards;
+  text-shadow: 0 0 6px rgba(222, 197, 151, 0.6);
+}
+
+@keyframes brillito-animacion {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+      scale(0.3) rotate(45deg);
+  }
+}

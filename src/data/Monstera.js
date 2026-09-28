@@ -41,7 +41,7 @@ export const monsteras = [
           "Mezcla ligera, aireada y con buen drenaje (corteza, perlita)",
       },
       {
-        id: "monstera-thai",
+        id: "2",
         nombre: "Monstera Thai Constellation",
         imagen: thai,
         descripcion: `Una de las plantas más deseadas del mundo por su espectacular variegación color crema que simula un cielo estrellado. Al no tener clorofila en sus zonas claras, sus cuidados con mas exigentes y precisos que los de una monstera comun.\n
@@ -73,7 +73,7 @@ export const monsteras = [
         ],
       },
       {
-        id: "monstera-variegada",
+        id: "Monstera-variegada",
         nombre: "Monstera Variegada",
         imagen: MonsteraVariegada,
         descripcion: `Esta planta espectacular tiene una historia que mezcla la botanica con la ciencia de laboratorio. Sus manchas blancas nacen de una mutacion genetica espontanea que causa que algunas partes de la planta no produzcan clorofila./n

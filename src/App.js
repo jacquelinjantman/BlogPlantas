@@ -4,12 +4,14 @@ import DetalleFamilia from "./pages/DetalleFamilia";
 import MenuLateral from "./components/MenuLateral";
 import DetallePlanta from "./pages/DetallePlanta";
 import Vinilo from "./components/Vinilo";
+import Cursor from "./components/Cursor";
 import "./App.css";
 
 function App() {
   return (
     <>
       <MenuLateral />
+      <Cursor/>
       <Vinilo />
       <Routes>
         <Route path="/" element={<Inicio />} />
