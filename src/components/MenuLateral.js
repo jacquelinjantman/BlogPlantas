@@ -4,6 +4,18 @@ import familias from "../data/plantas";
 
 function MenuLateral() {
   const [abierto, setAbierto] = useState(false);
+  const [familiaActiva, setFamiliaActiva] = useState(null);
+
+  const familiaSeleccionada = familias.find((f) => f.id === familiaActiva);
+
+  function alternarFamilia(id) {
+    setFamiliaActiva((actual) => (actual === id ? null : id));
+  }
+
+  function cerrarMenu() {
+    setAbierto(false);
+    setFamiliaActiva(null);
+  }
 
   return (
     <>
@@ -12,10 +24,14 @@ function MenuLateral() {
         onClick={() => setAbierto(!abierto)}
         aria-expanded={abierto}
       >
-        {abierto ? "× Cerrar" : "☘ Plantas" }
+        {abierto ? "× Cerrar" : "☘ Plantas"}
       </button>
 
-      <aside className={`menu-lateral ${abierto ? "menu-abierto" : ""}`}>
+      <aside
+        className={`menu-lateral ${abierto ? "menu-abierto" : ""} ${
+          familiaSeleccionada ? "menu-ancho" : ""
+        }`}
+      >
         <div className="menu-cabecera">
           <p>HERBARIO PERSONAL</p>
 
@@ -24,40 +40,55 @@ function MenuLateral() {
           </button>
         </div>
 
-        <nav>
-          <Link
-            className="enlace-inicio"
-            to="/"
-            onClick={() => setAbierto(false)}
-          >
-            Inicio
-          </Link>
+        <div className="menu-columnas">
+          <nav className="columa-familias">
+            <Link className="enlace-inicio" to="/" onClick={cerrarMenu}>
+              Inicio
+            </Link>
 
-          <p className="menu-titulo">Familias</p>
+            <p className="menu-titulo">Familias</p>
 
-          {familias.map((familia) => (
-            <div className="grupo-familia" key={familia.id}>
-              <Link
-                to={`/familia/${familia.id}`}
-                onClick={() => setAbierto(false)}
+            {familias.map((familia) => (
+              <button
+                key={familia.id}
+                className={
+                  "boton-familia-menu" +
+                  (familia.id === familiaActiva ? "Activa" : "")
+                }
+                onClick={() => alternarFamilia(familia.id)}
               >
                 {familia.nombre}
+              </button>
+            ))}
+          </nav>
+
+          {familiaSeleccionada && (
+            <nav className="columna-variantes">
+              <p className="menu-titulo">{familiaSeleccionada.nombre}</p>
+
+              <Link
+                className="menu-variante menu-ver-familia"
+                to={`/familia/${familiaSeleccionada.id}`}
+                onClick={cerrarMenu}
+              >
+                Ver toda la familia →
               </Link>
 
-              {familia.variantes
+              {familiaSeleccionada.variantes
                 .filter((variante) => variante.nombre)
                 .map((variante) => (
-                 <Link
-                 className="menu-variante"
-                 to={`/familia/${familia.id}/planta/${variante.id}`}
-                 onClick={() => setAbierto(false)}
-                 >
-                  {variante.nombre}
-                 </Link>
+                  <Link
+                    key={variante.id}
+                    className="menu-variante"
+                    to={`/familia/${familiaSeleccionada.id}?planta/${variante.id}`}
+                    onClick={cerrarMenu}
+                  >
+                    {variante.nombre}
+                  </Link>
                 ))}
-            </div>
-          ))}
-        </nav>
+            </nav>
+          )}
+        </div>
       </aside>
     </>
   );

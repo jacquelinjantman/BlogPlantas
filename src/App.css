@@ -394,11 +394,20 @@ body {
   height: 100vh;
   padding: 28px;
   overflow-y: auto;
+  overflow-x: hidden;
   border-right: 1px solid rgba(222, 197, 151, 0.3);
   background: var(--pino);
   box-shadow: 12px 0 35px rgba(0, 0, 0, 0.25);
   transform: translateX(-105%);
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    width 0.25s ease;
+}
+
+/* Cuando hay una familia activa, el panel se ensancha
+   para dejar espacio a la columna de variedades al costado */
+.menu-lateral.menu-ancho {
+  width: min(560px, 94vw);
 }
 
 .menu-abierto {
@@ -452,9 +461,11 @@ body {
 }
 
 .menu-variante {
+  display: block;
   margin: 8px 0 0 14px;
   color: var(--texto-claro);
   font-size: 0.88rem;
+  text-decoration: none;
 }
 
 .grupo-familia a:hover,
@@ -474,6 +485,95 @@ body {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* --- Menu de dos columnas (familias + variedades al costado) --- */
+
+.menu-columnas {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.columna-familias {
+  flex: 0 0 170px;
+}
+
+.columna-variantes {
+  flex: 1;
+  min-width: 0;
+  padding-left: 20px;
+  border-left: 1px solid rgba(222, 197, 151, 0.25);
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+
+.columna-variantes .menu-variante {
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.menu-variante,
+.boton-familia-menu,
+.menu-ver-familia {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.menu-ver-familia {
+  margin-bottom: 16px !important;
+  color: var(--cobre);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.boton-familia-menu {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: var(--crema);
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.boton-familia-menu:hover,
+.boton-familia-menu.activa {
+  color: var(--cobre);
+}
+
+/* Por debajo de este ancho no entran cómodas dos columnas lado a lado,
+   así que las variedades pasan a mostrarse debajo de la familia (acordeón).
+   Este es el caso de casi todos los celulares. */
+@media (max-width: 640px) {
+  .menu-lateral.menu-ancho {
+    width: min(340px, 92vw);
+  }
+
+  .menu-columnas {
+    flex-direction: column;
+  }
+
+  .columna-familias {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .columna-variantes {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(222, 197, 151, 0.25);
+    padding-left: 0;
+    padding-top: 16px;
+    margin-top: 4px;
+    max-height: 45vh;
+  }
 }
 
 .ficha-planta {
